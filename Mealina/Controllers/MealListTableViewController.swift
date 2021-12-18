@@ -37,7 +37,11 @@ class MealListTableViewController: UITableViewController {
         return UITableViewCell()
     }
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 80, bottom: 40, right: 10)
+        cell.separatorInset = UIEdgeInsets(top: 40, left: 90, bottom: 0, right: 10)
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        navigationController?.pushViewController(Controllers.meal.viewController, animated: true)
     }
     //MARK: - Navigation
 
