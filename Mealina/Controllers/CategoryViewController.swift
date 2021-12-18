@@ -38,7 +38,7 @@ class CategoryViewController: UIViewController {
         categoryTableView.dataSource = self
         
         categoryTableView.separatorStyle = .none
-        categoryTableView.register(CategoryMealViewCell.categoryNib(), forCellReuseIdentifier: CategoryMealViewCell.identifier)
+        categoryTableView.register(CategoryViewCell.categoryNib(), forCellReuseIdentifier: CategoryViewCell.identifier)
         
         searchCategoryTextField.delegate = self
     }
@@ -50,7 +50,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryMealViewCell.identifier, for: indexPath) as? CategoryMealViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as? CategoryViewCell {
            
             return cell
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryMealViewCell: UITableViewCell {
+class CategoryViewCell: UITableViewCell {
     
     static let nibName = "CategoryMealViewCell"
     static let identifier = "category_cell"
@@ -42,7 +42,7 @@ class CategoryMealViewCell: UITableViewCell {
     }
     
     static public func categoryNib() -> UINib {
-        return UINib(nibName: CategoryMealViewCell.nibName, bundle: nil)
+        return UINib(nibName: CategoryViewCell.nibName, bundle: nil)
     }
     
     fileprivate func imageFrame(view: UIImageView) -> CGRect {
