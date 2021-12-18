@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MealViewController: UIViewController {
+class MealRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

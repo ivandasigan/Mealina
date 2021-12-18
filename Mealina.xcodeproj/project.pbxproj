@@ -18,7 +18,7 @@
 		EA7C4617276CC10600C05E97 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C4615276CC10600C05E97 /* MealViewCell.swift */; };
 		EA7C4618276CC10600C05E97 /* MealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C4616276CC10600C05E97 /* MealViewCell.xib */; };
 		EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */; };
-		EA7C461C276CC63C00C05E97 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C461B276CC63C00C05E97 /* MealViewController.swift */; };
+		EA7C461C276CC63C00C05E97 /* MealRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C461B276CC63C00C05E97 /* MealRecipeViewController.swift */; };
 		EA7C4620276CDE7300C05E97 /* UIVIew+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C461F276CDE7300C05E97 /* UIVIew+Shadow.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +36,7 @@
 		EA7C4615276CC10600C05E97 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
 		EA7C4616276CC10600C05E97 /* MealViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealViewCell.xib; sourceTree = "<group>"; };
 		EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListTableViewController.swift; sourceTree = "<group>"; };
-		EA7C461B276CC63C00C05E97 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		EA7C461B276CC63C00C05E97 /* MealRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecipeViewController.swift; sourceTree = "<group>"; };
 		EA7C461F276CDE7300C05E97 /* UIVIew+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Shadow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,7 @@
 			children = (
 				EA7C45FC276C9B5100C05E97 /* CategoryViewController.swift */,
 				EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */,
-				EA7C461B276CC63C00C05E97 /* MealViewController.swift */,
+				EA7C461B276CC63C00C05E97 /* MealRecipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 				EA7C45FD276C9B5100C05E97 /* CategoryViewController.swift in Sources */,
 				EA7C4613276CA4B900C05E97 /* CategoryViewCell.swift in Sources */,
 				EA7C45F9276C9B5100C05E97 /* AppDelegate.swift in Sources */,
-				EA7C461C276CC63C00C05E97 /* MealViewController.swift in Sources */,
+				EA7C461C276CC63C00C05E97 /* MealRecipeViewController.swift in Sources */,
 				EA7C45FB276C9B5100C05E97 /* SceneDelegate.swift in Sources */,
 				EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */,
 				EA7C4617276CC10600C05E97 /* MealViewCell.swift in Sources */,
