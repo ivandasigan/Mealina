@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryViewCell: UITableViewCell {
     
-    static let nibName = "CategoryMealViewCell"
+    static let nibName = "CategoryViewCell"
     static let identifier = "category_cell"
     
     @IBOutlet weak var categoryImage: UIImageView!

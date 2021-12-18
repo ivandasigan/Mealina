@@ -14,7 +14,7 @@
 		EA7C4602276C9B5800C05E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7C4601276C9B5800C05E97 /* Assets.xcassets */; };
 		EA7C4605276C9B5800C05E97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C4603276C9B5800C05E97 /* LaunchScreen.storyboard */; };
 		EA7C4613276CA4B900C05E97 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C4611276CA4B900C05E97 /* CategoryViewCell.swift */; };
-		EA7C4614276CA4B900C05E97 /* CategoryMealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C4612276CA4B900C05E97 /* CategoryMealViewCell.xib */; };
+		EA7C4614276CA4B900C05E97 /* CategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C4612276CA4B900C05E97 /* CategoryViewCell.xib */; };
 		EA7C4617276CC10600C05E97 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C4615276CC10600C05E97 /* MealViewCell.swift */; };
 		EA7C4618276CC10600C05E97 /* MealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C4616276CC10600C05E97 /* MealViewCell.xib */; };
 		EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */; };
@@ -32,7 +32,7 @@
 		EA7C4604276C9B5800C05E97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA7C4606276C9B5800C05E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA7C4611276CA4B900C05E97 /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
-		EA7C4612276CA4B900C05E97 /* CategoryMealViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryMealViewCell.xib; sourceTree = "<group>"; };
+		EA7C4612276CA4B900C05E97 /* CategoryViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewCell.xib; sourceTree = "<group>"; };
 		EA7C4615276CC10600C05E97 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
 		EA7C4616276CC10600C05E97 /* MealViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealViewCell.xib; sourceTree = "<group>"; };
 		EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListTableViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EA7C4611276CA4B900C05E97 /* CategoryViewCell.swift */,
-				EA7C4612276CA4B900C05E97 /* CategoryMealViewCell.xib */,
+				EA7C4612276CA4B900C05E97 /* CategoryViewCell.xib */,
 				EA7C4615276CC10600C05E97 /* MealViewCell.swift */,
 				EA7C4616276CC10600C05E97 /* MealViewCell.xib */,
 			);
@@ -204,7 +204,7 @@
 			files = (
 				EA7C4605276C9B5800C05E97 /* LaunchScreen.storyboard in Resources */,
 				EA7C4618276CC10600C05E97 /* MealViewCell.xib in Resources */,
-				EA7C4614276CA4B900C05E97 /* CategoryMealViewCell.xib in Resources */,
+				EA7C4614276CA4B900C05E97 /* CategoryViewCell.xib in Resources */,
 				EA7C4602276C9B5800C05E97 /* Assets.xcassets in Resources */,
 				EA7C4600276C9B5100C05E97 /* Main.storyboard in Resources */,
 			);
