@@ -7,16 +7,57 @@
 
 import UIKit
 
+enum Controllers {
+    case listOfMeal
+    case meal
+    
+    
+    var id: String {
+        switch self {
+        case .listOfMeal:
+            return "listOfMealVC"
+        case .meal:
+            return "mealVC"
+        }
+    }
+    
+    var storyBoard: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+    
+    var viewController: UIViewController {
+        switch self {
+        case .listOfMeal:
+            return storyBoard.instantiateViewController(withIdentifier: Controllers.listOfMeal.id)
+        case .meal:
+            return storyBoard.instantiateViewController(withIdentifier: Controllers.meal.id)
+        }
+    }
+    
+}
+
 class CategoryViewController: UIViewController {
     
-    //MARK: - OUTLETS
+    //MARK:- OUTLETS
+ 
     @IBOutlet weak var categoryTableView: UITableView!
-    @IBOutlet weak var searchCategoryTextField: UITextField!
+    @IBOutlet weak var searchCategoryTextField: UITextField! {
+        didSet {
+            
+            searchCategoryTextField.addTarget(self, action: #selector(self.textfieldDidChange(_:)), for: .editingChanged)
+            searchCategoryTextField.clearButtonMode = .whileEditing
+        }
+    }
     @IBOutlet weak var randomImage: UIImageView! {
         didSet {
             randomImage.layer.cornerRadius = radius
             randomImage.clipsToBounds = true
             randomImage.contentMode = .scaleAspectFill
+            
+            // Add Tap Gesture
+            randomImage.isUserInteractionEnabled = true
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedRandomImage))
+            randomImage.addGestureRecognizer(tapGesture)
         }
     }
     @IBOutlet weak var searchContainerView: UIView! {
@@ -42,6 +83,16 @@ class CategoryViewController: UIViewController {
         
         searchCategoryTextField.delegate = self
     }
+    
+    //MARK:- OBJ METHODS
+    @objc func tappedRandomImage() {
+        let alert = UIAlertController(title: "ALERT MESSAGE", message: "Hi you just Tapped me", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    @objc func textfieldDidChange(_ textfield: UITextField) {
+        print(textfield.text!)
+    }
 }
 
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,14 +112,17 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(Controllers.listOfMeal.viewController, animated: true)
     }
 }
 
 extension CategoryViewController: UITextFieldDelegate {
+   
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
     }
 }

@@ -117,21 +117,11 @@
         <!--Meal List Table View Controller-->
         <scene sceneID="swN-vT-RQ2">
             <objects>
-                <tableViewController id="D1r-IU-RZu" customClass="MealListTableViewController" customModule="Mealina" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="listOfMealVC" id="D1r-IU-RZu" customClass="MealListTableViewController" customModule="Mealina" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hwN-5A-YvZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HrT-ZB-KYU">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HrT-ZB-KYU" id="0NL-JQ-H2i">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="D1r-IU-RZu" id="zrQ-9X-bQo"/>
                             <outlet property="delegate" destination="D1r-IU-RZu" id="6vU-qn-oXO"/>
@@ -145,7 +135,7 @@
         <!--Meal View Controller-->
         <scene sceneID="taX-tF-agh">
             <objects>
-                <viewController id="GMK-qP-S5c" customClass="MealViewController" customModule="Mealina" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mealVC" id="GMK-qP-S5c" customClass="MealViewController" customModule="Mealina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u7J-Gd-yl1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
