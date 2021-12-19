@@ -23,8 +23,7 @@ class CategoryViewController: UIViewController {
     }
     @IBOutlet weak var randomImage: UIImageView! {
         didSet {
-            randomImage.layer.cornerRadius = radius
-            randomImage.clipsToBounds = true
+            randomImage.setImageCornerRadius(radius)
             randomImage.contentMode = .scaleAspectFill
             
             // Add Tap Gesture
@@ -35,7 +34,7 @@ class CategoryViewController: UIViewController {
     }
     @IBOutlet weak var searchContainerView: UIView! {
         didSet {
-            searchContainerView.layer.cornerRadius = radius
+            searchContainerView.setCornerRadius(radius)
       
         }
     }

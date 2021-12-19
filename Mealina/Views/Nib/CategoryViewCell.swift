@@ -26,8 +26,7 @@ class CategoryViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.categoryImage.layer.cornerRadius = 8
-        self.categoryImage.clipsToBounds = true
+        self.categoryImage.setImageCornerRadius(8)
       
         self.overlapView.frame = imageFrame(view: categoryImage)
      

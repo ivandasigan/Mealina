@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA64CF2C276F392300C388FD /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2B276F392300C388FD /* Controllers.swift */; };
+		EA64CF2E276F3DB800C388FD /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */; };
 		EA7C45F9276C9B5100C05E97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C45F8276C9B5100C05E97 /* AppDelegate.swift */; };
 		EA7C45FB276C9B5100C05E97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C45FA276C9B5100C05E97 /* SceneDelegate.swift */; };
 		EA7C45FD276C9B5100C05E97 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C45FC276C9B5100C05E97 /* CategoryViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		EA64CF2B276F392300C388FD /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
+		EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		EA7C45F5276C9B5100C05E97 /* Mealina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mealina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7C45F8276C9B5100C05E97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA7C45FA276C9B5100C05E97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				EA7C461F276CDE7300C05E97 /* UIVIew+Shadow.swift */,
+				EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */,
 				EA64CF2C276F392300C388FD /* Controllers.swift in Sources */,
 				EA7C4617276CC10600C05E97 /* MealViewCell.swift in Sources */,
+				EA64CF2E276F3DB800C388FD /* UIView+CornerRadius.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

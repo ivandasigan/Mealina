@@ -18,8 +18,7 @@ class MealViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        mealImage.layer.cornerRadius = 8
-        mealImage.clipsToBounds = true
+        mealImage.setImageCornerRadius(8)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

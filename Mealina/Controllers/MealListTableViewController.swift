@@ -10,6 +10,12 @@ import UIKit
 class MealListTableViewController: UITableViewController {
     
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = .darkGray
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

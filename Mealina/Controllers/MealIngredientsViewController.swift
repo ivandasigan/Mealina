@@ -23,8 +23,7 @@ class MealIngredientsViewController: UIViewController {
         super.viewDidLoad()
         
     
-        mealImage.layer.cornerRadius = 8
-        mealImage.clipsToBounds = true
+        mealImage.setImageCornerRadius(8)
         
         for _ in 0..<10  {
             addChildrenStackViews()
