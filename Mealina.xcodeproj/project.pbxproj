@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A25B5BE7C39D71F55FFAABB2 /* Pods_Mealina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD28C0AB077E4616404AE999 /* Pods_Mealina.framework */; };
 		EA64CF2C276F392300C388FD /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2B276F392300C388FD /* Controllers.swift */; };
 		EA64CF2E276F3DB800C388FD /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */; };
 		EA64CF30276F544C00C388FD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2F276F544C00C388FD /* Category.swift */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C90B781E9B14DFC5FFCC868 /* Pods-Mealina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mealina.release.xcconfig"; path = "Target Support Files/Pods-Mealina/Pods-Mealina.release.xcconfig"; sourceTree = "<group>"; };
+		DD28C0AB077E4616404AE999 /* Pods_Mealina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mealina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA64CF2B276F392300C388FD /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		EA64CF2F276F544C00C388FD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListTableViewController.swift; sourceTree = "<group>"; };
 		EA7C461B276CC63C00C05E97 /* MealRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecipeViewController.swift; sourceTree = "<group>"; };
 		EA7C461F276CDE7300C05E97 /* UIVIew+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Shadow.swift"; sourceTree = "<group>"; };
+		F90C9810554A98C1AAE33022 /* Pods-Mealina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mealina.debug.xcconfig"; path = "Target Support Files/Pods-Mealina/Pods-Mealina.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +57,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A25B5BE7C39D71F55FFAABB2 /* Pods_Mealina.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14C8B2AE7F49880DF9678B29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD28C0AB077E4616404AE999 /* Pods_Mealina.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4905A84E51B5C7CEF81C6A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F90C9810554A98C1AAE33022 /* Pods-Mealina.debug.xcconfig */,
+				9C90B781E9B14DFC5FFCC868 /* Pods-Mealina.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EA64CF2A276F38F600C388FD /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +95,8 @@
 			children = (
 				EA7C45F7276C9B5100C05E97 /* Mealina */,
 				EA7C45F6276C9B5100C05E97 /* Products */,
+				A4905A84E51B5C7CEF81C6A0 /* Pods */,
+				14C8B2AE7F49880DF9678B29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA7C4609276C9B5800C05E97 /* Build configuration list for PBXNativeTarget "Mealina" */;
 			buildPhases = (
+				A994DE1319D31103038FF03B /* [CP] Check Pods Manifest.lock */,
 				EA7C45F1276C9B5100C05E97 /* Sources */,
 				EA7C45F2276C9B5100C05E97 /* Frameworks */,
 				EA7C45F3276C9B5100C05E97 /* Resources */,
+				E985D4C937E8949F03CF7317 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,6 +258,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A994DE1319D31103038FF03B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mealina-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E985D4C937E8949F03CF7317 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mealina/Pods-Mealina-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mealina/Pods-Mealina-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mealina/Pods-Mealina-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA7C45F1276C9B5100C05E97 /* Sources */ = {
@@ -392,6 +461,7 @@
 		};
 		EA7C460A276C9B5800C05E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F90C9810554A98C1AAE33022 /* Pods-Mealina.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -420,6 +490,7 @@
 		};
 		EA7C460B276C9B5800C05E97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C90B781E9B14DFC5FFCC868 /* Pods-Mealina.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

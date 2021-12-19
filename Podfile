@@ -6,5 +6,5 @@ target 'Mealina' do
   use_frameworks!
 
   # Pods for Mealina
-
+pod 'Moya'
 end
