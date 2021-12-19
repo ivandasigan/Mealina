@@ -47,6 +47,7 @@ class MealRecipeViewController: UIViewController {
         ingredientName.textColor = .darkGray
         ingredientImage.layer.cornerRadius = 8
         ingredientImage.clipsToBounds = true
+        
         var ingredientContent = UILabel()
         ingredientContent.text = "20grams"
         ingredientContent.font = .systemFont(ofSize: 16)
@@ -59,6 +60,7 @@ class MealRecipeViewController: UIViewController {
         
         let innerStackView = UIStackView(arrangedSubviews: [ingredientImage, ingredientName])
         let itemStackView = UIStackView(arrangedSubviews: [innerStackView, ingredientContent])
+        
         itemStackView.axis = .horizontal
         innerStackView.axis = .horizontal
         innerStackView.spacing = 20
