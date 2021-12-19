@@ -7,17 +7,22 @@
 
 import UIKit
 import Moya
+import PromiseKit
 
 enum RequestError: Error {
     case DecodeError
+    case ErrorCode(code: Int)
 }
 struct shared {
-    static let requestProvider = MoyaProvider<RequestAPI>()
+ 
+    static public func requestProvider<T: TargetType>(_ enum: T) -> MoyaProvider<T> {
+        return MoyaProvider<T>()
+    }
 }
 
 class CategoryViewController: UIViewController {
     
-    //MARK:- OUTLETS
+    //MARK: - OUTLETS
  
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var searchCategoryTextField: UITextField! {
@@ -51,23 +56,18 @@ class CategoryViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.tintColor = .darkGray
     }
+    let categoryService = CategoryService()
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableViewAndTextField()
        
-        shared.requestProvider.request(.getCategoryRequest) { result in
-            switch result {
-            case .success(let response):
-                guard let jsonResponse = try? JSONDecoder().decode(Category.self, from: response.data) else {
-                    print("ERROR DECCODING \(RequestError.DecodeError)")
-                    return
-                }
-                print("RESPONSE =======> \n\(jsonResponse)")
-            case .failure(let error):
-                print("ERROR \(error.localizedDescription)")
-            }
+        firstly {
+            categoryService.fetchCategories()
+        }.done { result in
+            print("RESULT ===> \(result.categories)")
+        }.catch { error in
+            print(error)
         }
-        
     }
 
     fileprivate func fetchAPI() {
