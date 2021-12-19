@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MealIngredientsViewController: UIViewController {
+class MealRecipeViewController: UIViewController {
 
     //MARK: - OUTLETS
     @IBOutlet weak var mealImage: UIImageView! {
@@ -26,7 +26,7 @@ class MealIngredientsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
-        
+        title = "Recipe"
     }
     
     override func viewDidLoad() {
