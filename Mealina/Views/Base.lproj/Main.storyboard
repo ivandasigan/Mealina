@@ -245,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWj-3H-xle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2228.985507246377" y="59.598214285714285"/>
+            <point key="canvasLocation" x="1499" y="-747"/>
         </scene>
         <!--Meal Ingredients View Controller-->
         <scene sceneID="v3X-SM-0za">
@@ -323,13 +323,13 @@
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCc-xU-pRE">
-                                                        <rect key="frame" x="20" y="20" width="374" height="534.5"/>
+                                                        <rect key="frame" x="20" y="0.0" width="374" height="554.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instruction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jR-e3-ReY">
-                                                                <rect key="frame" x="0.0" y="-15" width="100" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="100" id="6al-bI-qY0"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="6al-bI-qY0"/>
                                                                     <constraint firstAttribute="height" constant="30" id="hXn-LI-XqX"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
@@ -342,7 +342,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1G-n3-Ki7">
-                                                                <rect key="frame" x="0.0" y="21" width="374" height="507.5"/>
+                                                                <rect key="frame" x="0.0" y="40" width="374" height="508.5"/>
                                                                 <string key="text">lorem ipsum dasddsad lorem ipsum dasddsad lorem ipsum lorem ipsum dasddsad lorem ipsum dasddsad lorem ipsum lorem ipsum dasddsad lorem ipsum dasddsad lorem ipsum </string>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -352,10 +352,10 @@
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="s1G-n3-Ki7" secondAttribute="bottom" constant="6" id="Pih-i9-lBC"/>
                                                             <constraint firstAttribute="trailing" secondItem="s1G-n3-Ki7" secondAttribute="trailing" id="Rcn-32-pLg"/>
-                                                            <constraint firstItem="s1G-n3-Ki7" firstAttribute="top" secondItem="UCc-xU-pRE" secondAttribute="top" constant="21" id="Xkp-7z-Aa9"/>
                                                             <constraint firstItem="s1G-n3-Ki7" firstAttribute="leading" secondItem="UCc-xU-pRE" secondAttribute="leading" id="dA5-Q3-jig"/>
+                                                            <constraint firstItem="s1G-n3-Ki7" firstAttribute="top" secondItem="3jR-e3-ReY" secondAttribute="bottom" constant="10" id="i33-T6-SYU"/>
                                                             <constraint firstItem="3jR-e3-ReY" firstAttribute="leading" secondItem="UCc-xU-pRE" secondAttribute="leading" id="inc-em-GF8"/>
-                                                            <constraint firstItem="3jR-e3-ReY" firstAttribute="top" secondItem="UCc-xU-pRE" secondAttribute="top" constant="-15" id="o9l-GD-x8L"/>
+                                                            <constraint firstItem="3jR-e3-ReY" firstAttribute="top" secondItem="UCc-xU-pRE" secondAttribute="top" id="o9l-GD-x8L"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="QBO-QN-I6e">
@@ -365,7 +365,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lgr-Na-U6R">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="145.5" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="40"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal" translatesAutoresizingMaskIntoConstraints="NO" id="9VA-4K-5H7">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -375,19 +375,19 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkO-Vd-WWl">
-                                                                                <rect key="frame" x="60" y="0.0" width="85.5" height="40"/>
+                                                                                <rect key="frame" x="60" y="0.0" width="81.5" height="40"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <nil key="textColor"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 Items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzm-MM-sD2">
-                                                                        <rect key="frame" x="309.5" y="0.0" width="64.5" height="40"/>
+                                                                        <rect key="frame" x="312.5" y="0.0" width="61.5" height="40"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -408,7 +408,7 @@
                                                     <constraint firstItem="rM4-wu-wRy" firstAttribute="top" secondItem="UCc-xU-pRE" secondAttribute="bottom" constant="20" id="eLW-Yw-gir"/>
                                                     <constraint firstAttribute="trailing" secondItem="QBO-QN-I6e" secondAttribute="trailing" constant="20" id="gyE-RA-ZbK"/>
                                                     <constraint firstItem="rM4-wu-wRy" firstAttribute="leading" secondItem="j9L-3B-PPp" secondAttribute="leading" constant="20" id="kCY-Tw-LXw"/>
-                                                    <constraint firstItem="UCc-xU-pRE" firstAttribute="top" secondItem="j9L-3B-PPp" secondAttribute="top" constant="20" id="mRG-TW-cdP"/>
+                                                    <constraint firstItem="UCc-xU-pRE" firstAttribute="top" secondItem="j9L-3B-PPp" secondAttribute="top" id="mRG-TW-cdP"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -437,9 +437,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countItems" destination="jGM-io-hYN" id="chT-PA-9jS"/>
                         <outlet property="instruction" destination="s1G-n3-Ki7" id="H25-8t-60U"/>
                         <outlet property="instructionContainerView" destination="UCc-xU-pRE" id="dzm-ZC-W3W"/>
-                        <outlet property="instructionText" destination="3jR-e3-ReY" id="D5y-iN-r1y"/>
                         <outlet property="mealImage" destination="hHG-LT-QnF" id="n1X-GP-TBd"/>
                         <outlet property="mealName" destination="f9c-62-ixl" id="cd8-4b-aQZ"/>
                         <outlet property="others" destination="PW1-Yj-gxN" id="GPI-fW-1b0"/>
