@@ -70,6 +70,10 @@ class CategoryViewController: UIViewController {
         
     }
 
+    fileprivate func fetchAPI() {
+        
+    }
+    
     fileprivate func configureTableViewAndTextField() {
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
