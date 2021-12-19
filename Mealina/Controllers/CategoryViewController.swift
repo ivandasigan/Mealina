@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Moya
 
-
+enum RequestError: Error {
+    case DecodeError
+}
+struct shared {
+    static let requestProvider = MoyaProvider<RequestAPI>()
+}
 
 class CategoryViewController: UIViewController {
     
@@ -49,6 +55,19 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         configureTableViewAndTextField()
        
+        shared.requestProvider.request(.getCategoryRequest) { result in
+            switch result {
+            case .success(let response):
+                guard let jsonResponse = try? JSONSerialization.jsonObject(with: response.data, options: []) else {
+                    print("ERROR DECCODING \(RequestError.DecodeError)")
+                    return
+                }
+                print("RESPONSE =======> \n\(jsonResponse)")
+            case .failure(let error):
+                print("ERROR \(error.localizedDescription)")
+            }
+        }
+        
     }
 
     fileprivate func configureTableViewAndTextField() {
