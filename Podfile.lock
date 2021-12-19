@@ -4,19 +4,31 @@ PODS:
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - PromiseKit (6.15.3):
+    - PromiseKit/CorePromise (= 6.15.3)
+    - PromiseKit/Foundation (= 6.15.3)
+    - PromiseKit/UIKit (= 6.15.3)
+  - PromiseKit/CorePromise (6.15.3)
+  - PromiseKit/Foundation (6.15.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.15.3):
+    - PromiseKit/CorePromise
 
 DEPENDENCIES:
   - Moya
+  - PromiseKit (~> 6.8)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
+    - PromiseKit
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
 
-PODFILE CHECKSUM: 90fe4a49781de658348f299425186d9f87d42737
+PODFILE CHECKSUM: 7794d69ec3d6ae628394e2ef33710387c3f05412
 
 COCOAPODS: 1.11.2

@@ -58,7 +58,7 @@ class CategoryViewController: UIViewController {
         shared.requestProvider.request(.getCategoryRequest) { result in
             switch result {
             case .success(let response):
-                guard let jsonResponse = try? JSONSerialization.jsonObject(with: response.data, options: []) else {
+                guard let jsonResponse = try? JSONDecoder().decode(Category.self, from: response.data) else {
                     print("ERROR DECCODING \(RequestError.DecodeError)")
                     return
                 }

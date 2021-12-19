@@ -7,4 +7,5 @@ target 'Mealina' do
 
   # Pods for Mealina
 pod 'Moya'
+pod "PromiseKit", "~> 6.8"
 end
