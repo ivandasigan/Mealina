@@ -13,13 +13,22 @@ class MealListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.tintColor = .darkGray
+        
+        title = "Chicken Teriyaki"
+        
+        let edgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
+        let backImage = UIImage(systemName: "arrow.backward")?.withRenderingMode(.alwaysOriginal).withAlignmentRectInsets(edgeInsets)
+        self.navigationController?.navigationBar.backIndicatorImage = backImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTableView()
+        tableView.separatorInset = UIEdgeInsets(top: 40, left: 90, bottom: 0, right: 10)
     }
 
     fileprivate func configureTableView() {
@@ -43,14 +52,15 @@ class MealListTableViewController: UITableViewController {
         return UITableViewCell()
     }
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.separatorInset = UIEdgeInsets(top: 40, left: 90, bottom: 0, right: 10)
+        //cell.separatorInset = UIEdgeInsets(top: 40, left: 90, bottom: 0, right: 10)
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         navigationController?.pushViewController(Controllers.meal.viewController, animated: true)
     }
-    //MARK: - Navigation
 
-
-
+    @objc func popToPrevious() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

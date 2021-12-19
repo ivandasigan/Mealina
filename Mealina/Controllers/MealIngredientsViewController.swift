@@ -10,7 +10,11 @@ import UIKit
 class MealIngredientsViewController: UIViewController {
 
     //MARK: - OUTLETS
-    @IBOutlet weak var mealImage: UIImageView!
+    @IBOutlet weak var mealImage: UIImageView! {
+        didSet {
+            mealImage.setImageCornerRadius(8)
+        }
+    }
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var others: UILabel!
     @IBOutlet weak var instruction: UILabel!
@@ -19,12 +23,15 @@ class MealIngredientsViewController: UIViewController {
   
     @IBOutlet weak var instructionContainerView: UIView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     
-        mealImage.setImageCornerRadius(8)
-        
         for _ in 0..<10  {
             addChildrenStackViews()
         }

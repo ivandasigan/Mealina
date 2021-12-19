@@ -41,9 +41,14 @@ class CategoryViewController: UIViewController {
     
     let radius : CGFloat = 8
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = .darkGray
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableViewAndTextField()
+       
     }
 
     fileprivate func configureTableViewAndTextField() {

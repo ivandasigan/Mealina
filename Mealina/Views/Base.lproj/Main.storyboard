@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ij5-8R-X2Y">
                                 <rect key="frame" x="20" y="98" width="374" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal that you might like" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urR-6Y-lVM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal you might like 😊" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urR-6Y-lVM">
                                         <rect key="frame" x="0.0" y="33.5" width="180" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="5A2-04-y3z"/>
@@ -130,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VdD-hV-VIZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1499" y="60"/>
+            <point key="canvasLocation" x="1555" y="70"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="taX-tF-agh">
@@ -448,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKc-LH-wAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3137.68115942029" y="59.598214285714285"/>
+            <point key="canvasLocation" x="2242" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j14-yY-x6y">
