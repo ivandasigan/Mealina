@@ -39,14 +39,18 @@ class MealIngredientsViewController: UIViewController {
         ingredientName.text = "Tiktokerist"
         ingredientName.font = .systemFont(ofSize: 16)
         ingredientName.textColor = .darkGray
+        ingredientImage.layer.cornerRadius = 8
+        ingredientImage.clipsToBounds = true
         var ingredientContent = UILabel()
         ingredientContent.text = "20grams"
         ingredientContent.font = .systemFont(ofSize: 16)
         ingredientContent.textColor = .darkGray
+        
         NSLayoutConstraint.activate([
             ingredientImage.widthAnchor.constraint(equalToConstant: 40),
             ingredientImage.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
         let innerStackView = UIStackView(arrangedSubviews: [ingredientImage, ingredientName])
         let itemStackView = UIStackView(arrangedSubviews: [innerStackView, ingredientContent])
         itemStackView.axis = .horizontal

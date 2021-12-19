@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hy9-LQ-XZ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kAK-II-uhg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -135,7 +135,7 @@
         <!--View Controller-->
         <scene sceneID="taX-tF-agh">
             <objects>
-                <viewController storyboardIdentifier="mealVC" id="GMK-qP-S5c" sceneMemberID="viewController">
+                <viewController id="GMK-qP-S5c" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u7J-Gd-yl1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,7 +250,7 @@
         <!--Meal Ingredients View Controller-->
         <scene sceneID="v3X-SM-0za">
             <objects>
-                <viewController id="Hy9-LQ-XZ0" customClass="MealIngredientsViewController" customModule="Mealina" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mealVC" id="Hy9-LQ-XZ0" customClass="MealIngredientsViewController" customModule="Mealina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hde-CC-SP5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
