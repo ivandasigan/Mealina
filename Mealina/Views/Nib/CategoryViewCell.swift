@@ -46,7 +46,7 @@ class CategoryViewCell: UITableViewCell {
             self.alpha = 1.0
             self.categoryName.text = category.strCategory
             self.categoryDescription.text = category.strCategoryDescription
-            self.categoryImage.image = downloadPhotos(imgUrlThumb: category.strCategoryThumb)
+            self.categoryImage.image = self.downloadPhotos(imgUrlThumb: category.strCategoryThumb)
         }
     }
     private func downloadPhotos(imgUrlThumb: String) -> UIImage {

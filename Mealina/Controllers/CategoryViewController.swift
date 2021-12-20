@@ -77,7 +77,7 @@ class CategoryViewController: UIViewController {
     let radius : CGFloat = 8
     var indicatorView: IVLoaderIndicator!
     let mealService = MealService()
-    private var categories : Category!
+    private var categories = [Categories]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -94,8 +94,9 @@ class CategoryViewController: UIViewController {
             self.mealService.get(ofType: Category.self, target: .getCategoryRequest)
         }.done { result in
             self.indicatorView.hideLoader()
-            self.categories = result
-            print(result)
+            self.categories = result.categories
+            self.categoryTableView.reloadData()
+       
         }.catch { error in
             print(error)
         }
@@ -125,12 +126,15 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let category = categories[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as? CategoryViewCell {
-           
+            DispatchQueue.main.async {
+                cell.bind(category: category)
+            }
             return cell
         }
         return UITableViewCell()
