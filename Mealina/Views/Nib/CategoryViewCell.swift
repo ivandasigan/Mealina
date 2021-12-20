@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryViewCell: UITableViewCell {
     
@@ -42,9 +43,10 @@ class CategoryViewCell: UITableViewCell {
     
     public func bind(category: Categories) {
       
-            self.categoryName.text = category.strCategory
-            self.categoryDescription.text = category.strCategoryDescription
-            self.categoryImage.image = self.downloadPhotos(imgUrlThumb: category.strCategoryThumb)
+        self.categoryName.text = category.strCategory
+        self.categoryDescription.text = category.strCategoryDescription
+        self.categoryImage.sd_setImage(with: URL(string: category.strCategoryThumb))
+        self.categoryImage.sd_imageTransition = SDWebImageTransition.fade(duration: 1)
         
     }
     private func downloadPhotos(imgUrlThumb: String) -> UIImage {

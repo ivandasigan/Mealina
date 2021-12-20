@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MealViewCell: UITableViewCell {
     
@@ -28,10 +29,9 @@ class MealViewCell: UITableViewCell {
     }
     
     public func bind(meal: Meals) {
-        UIView.animate(withDuration: 0.3) {
-            self.mealImage.image = self.downloadPhotos(imgUrlThumb: meal.strMealThumb)
-            self.mealName.text = meal.strMeal
-        }
+        self.mealImage.sd_setImage(with: URL(string: meal.strMealThumb))
+        self.mealImage.sd_imageTransition = .fade(duration: 1)
+        self.mealName.text = meal.strMeal
     }
     private func downloadPhotos(imgUrlThumb: String) -> UIImage {
       

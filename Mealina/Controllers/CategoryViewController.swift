@@ -35,6 +35,8 @@ struct IVLoaderIndicator {
     public func showLoader() -> Guarantee<Void> {
         loadingIndicator.startAnimating()
         loadingIndicator.hidesWhenStopped = true
+        
+        
         return Guarantee()
     }
     public func hideLoader() -> Guarantee<Void> {
@@ -130,10 +132,6 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let category = categories[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as? CategoryViewCell {
-            cell.alpha = 0.0
-            UIView.animate(withDuration: 0.4) {
-                cell.alpha = 1.0
-            }
             cell.bind(category: category)
             return cell
         }
