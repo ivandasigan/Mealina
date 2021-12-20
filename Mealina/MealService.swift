@@ -10,35 +10,60 @@ import PromiseKit
 import Moya
 
 
-protocol Requestable {
-    func request<T:Codable>(provider: MoyaProvider<T>) -> T
-}
-extension Requestable {
-//    func request<T:Codable>(provider: MoyaProvider<T>) -> T {
-//        
-//    }
+enum PhotoError: Error {
+    case URLParseError
+    case UrltoDataError
 }
 
-struct MealService {
+enum RequestError: Error {
+   
     
-    public func fetchCategories() -> Promise<Category> {
+    case DecodeError
+    case ErrorCode(code: Int)
+}
+struct shared {
+ 
+    static public func requestProvider<T: TargetType>(_ enum: T) -> MoyaProvider<T> {
+        return MoyaProvider<T>()
+    }
+}
+
+protocol Requestable {
+    func get<T: Codable>(ofType obj: T.Type, target: MealAPI) -> Promise<T>
+}
+
+extension Requestable { }
+
+
+struct MealService: Requestable {
+    
+    func get<T>(ofType obj: T.Type, target: MealAPI) -> Promise<T> where T : Decodable, T : Encodable {
+        let provider = MoyaProvider<MealAPI>()
         return Promise { seal in
-            let provider = MoyaProvider<MealAPI>()
-            provider.request(.getCategoryRequest) { result in
+            provider.request(target) { result in
                 switch result {
                 case .success(let response):
-                    guard let jsonResponse = try? JSONDecoder().decode(Category.self, from: response.data) else {
-                        
-                        seal.reject(RequestError.ErrorCode(code: response.statusCode))
+                    guard let jsonResponse = try? JSONDecoder().decode(obj.self, from: response.data) else {
+                        print("ERROR DECODING")
                         return
                     }
-                    
                     seal.fulfill(jsonResponse)
                 case .failure(let error):
-                    
+                    seal.reject(error)
                     print("ERROR \(error.localizedDescription)")
                 }
             }
         }
     }
+    
+    
+//    public func fetch<T: Codable>(ofType obj: T, path: MealAPI) -> Promise<T> {
+//
+//        let provider = MoyaProvider<MealAPI>()
+//        return Promise { seal in
+//            provider.request(path) { result in
+//                <#code#>
+//            }
+//        }
+//    }
 }

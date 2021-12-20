@@ -24,19 +24,23 @@ extension MealAPI: TargetType {
         switch self {
         case .getCategoryRequest:
             return "categories.php"
-        case.getCategoryReque
+        case.getMealsRequest(let name):
+            return "filter.php?c=\(name)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getCategoryRequest, .getMealsRequest():
+        case .getCategoryRequest, .getMealsRequest(byCategoryName: _):
             return .get
         }
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .getCategoryRequest, .getMealsRequest(byCategoryName: _):
+            return .requestPlain
+        }
     }
     
     var headers: [String : String]? {

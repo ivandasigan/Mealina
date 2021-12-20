@@ -40,6 +40,14 @@ class CategoryViewCell: UITableViewCell {
       
     }
     
+    public func bind(category: Categories) {
+        self.alpha = 0.0
+        UIView.animate(withDuration: 0.3) {
+            self.categoryName.text = category.strCategory
+            self.categoryDescription.text = category.strCategoryDescription
+        }
+    }
+    
     static public func categoryNib() -> UINib {
         return UINib(nibName: CategoryViewCell.nibName, bundle: nil)
     }

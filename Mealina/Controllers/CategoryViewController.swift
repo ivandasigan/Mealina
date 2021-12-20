@@ -9,14 +9,37 @@ import UIKit
 import Moya
 import PromiseKit
 
-enum RequestError: Error {
-    case DecodeError
-    case ErrorCode(code: Int)
-}
-struct shared {
- 
-    static public func requestProvider<T: TargetType>(_ enum: T) -> MoyaProvider<T> {
-        return MoyaProvider<T>()
+//    var loadingIndicator: UIActivityIndicatorView = {
+//        let activityIndicator = UIActivityIndicatorView()
+//        activityIndicator.style = .medium
+//        activityIndicator.translatesAutoresizingMaskIntoConstraints
+//        return activityIndicator
+//    }()
+
+struct IVLoaderIndicator {
+    var loadingIndicator = UIActivityIndicatorView()
+    public init(superView view: UIView) {
+        self.view = view
+    }
+    var view: UIView
+    public func addChildIndicatorView() {
+        
+        loadingIndicator.style = .medium
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingIndicator)
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    public func showLoader() -> Guarantee<Void> {
+        loadingIndicator.startAnimating()
+        loadingIndicator.hidesWhenStopped = true
+        return Guarantee()
+    }
+    public func hideLoader() -> Guarantee<Void> {
+        loadingIndicator.stopAnimating()
+        return Guarantee()
     }
 }
 
@@ -27,7 +50,6 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var searchCategoryTextField: UITextField! {
         didSet {
-            
             searchCategoryTextField.addTarget(self, action: #selector(self.textfieldDidChange(_:)), for: .editingChanged)
             searchCategoryTextField.clearButtonMode = .whileEditing
         }
@@ -50,30 +72,53 @@ class CategoryViewController: UIViewController {
         }
     }
     
+
+    
     let radius : CGFloat = 8
+    var indicatorView: IVLoaderIndicator!
+    let mealService = MealService()
+    private var categories : Category!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.tintColor = .darkGray
     }
-    let categoryService = CategoryService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableViewAndTextField()
-       
+        indicatorView = IVLoaderIndicator(superView: self.view)
         firstly {
-            categoryService.fetchCategories()
+            self.indicatorView.showLoader()
+        }.then(on: DispatchQueue.global(qos: .background), flags: nil) {
+            self.mealService.get(ofType: Category.self, target: .getCategoryRequest)
         }.done { result in
-            print("RESULT ===> \(result.categories)")
+            self.indicatorView.hideLoader()
+            self.categories = result
+            print(result)
         }.catch { error in
             print(error)
         }
     }
 
-    fileprivate func fetchAPI() {
-        
+    private func downloadPhotos(categories: Category) -> Promise<Category> {
+        return Promise { seal in
+            for category in categories.categories {
+                guard let imageUrlThumb = URL(string: category.strCategoryThumb) else {
+                    seal.reject(PhotoError.URLParseError)
+                    return
+                }
+                guard let data = try? Data(contentsOf: imageUrlThumb else {
+                    seal.reject(PhotoError.UrltoDataError)
+                    return
+                }
+                guard let photo = UIImage(data: data) else {
+                    return
+                }
+            }
+            seal.fulfill(self.categories)
+        }
     }
-    
     fileprivate func configureTableViewAndTextField() {
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
