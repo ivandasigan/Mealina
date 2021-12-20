@@ -43,6 +43,10 @@ struct MealService: Requestable {
             provider.request(target) { result in
                 switch result {
                 case .success(let response):
+                    guard let ser = try? JSONSerialization.jsonObject(with: response.data, options: []) else {
+                        print("ERROR SERIALIZE")
+                        return }
+                    print(ser)
                     guard let jsonResponse = try? JSONDecoder().decode(obj.self, from: response.data) else {
                         print("ERROR DECODING")
                         return

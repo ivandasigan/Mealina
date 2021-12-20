@@ -68,11 +68,8 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var searchContainerView: UIView! {
         didSet {
             searchContainerView.setCornerRadius(radius)
-      
         }
     }
-    
-
     
     let radius : CGFloat = 8
     var indicatorView: IVLoaderIndicator!
@@ -88,6 +85,7 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         configureTableViewAndTextField()
         indicatorView = IVLoaderIndicator(superView: self.view)
+        indicatorView.addChildIndicatorView()
         firstly {
             self.indicatorView.showLoader()
         }.then(on: DispatchQueue.global(qos: .background), flags: nil) {
@@ -132,9 +130,11 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let category = categories[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as? CategoryViewCell {
-            DispatchQueue.main.async {
-                cell.bind(category: category)
+            cell.alpha = 0.0
+            UIView.animate(withDuration: 0.4) {
+                cell.alpha = 1.0
             }
+            cell.bind(category: category)
             return cell
         }
         return UITableViewCell()
@@ -144,7 +144,9 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(Controllers.listOfMeal.viewController, animated: true)
+        let vc = Controllers.listOfMeal.viewController as! MealListTableViewController
+        vc.categoryMealName = categories[indexPath.row].strCategory
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

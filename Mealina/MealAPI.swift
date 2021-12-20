@@ -11,6 +11,7 @@ import Moya
 
 enum MealAPI {
     case getCategoryRequest
+    case getRandomMealRequest
     case getMealsRequest(byCategoryName: String)
 }
 
@@ -24,22 +25,26 @@ extension MealAPI: TargetType {
         switch self {
         case .getCategoryRequest:
             return "categories.php"
-        case.getMealsRequest(let name):
-            return "filter.php?c=\(name)"
+        case.getMealsRequest:
+            return "filter.php"
+        case .getRandomMealRequest:
+            return ""
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getCategoryRequest, .getMealsRequest(byCategoryName: _):
+        case .getCategoryRequest, .getMealsRequest(byCategoryName: _), .getRandomMealRequest:
             return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .getCategoryRequest, .getMealsRequest(byCategoryName: _):
+        case .getCategoryRequest, .getRandomMealRequest:
             return .requestPlain
+        case .getMealsRequest(let name):
+            return .requestParameters(parameters: ["c":name], encoding: URLEncoding.queryString)
         }
     }
     

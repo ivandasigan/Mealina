@@ -27,6 +27,27 @@ class MealViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    public func bind(meal: Meals) {
+        UIView.animate(withDuration: 0.3) {
+            self.mealImage.image = self.downloadPhotos(imgUrlThumb: meal.strMealThumb)
+            self.mealName.text = meal.strMeal
+        }
+    }
+    private func downloadPhotos(imgUrlThumb: String) -> UIImage {
+      
+            guard let imageUrlThumb = URL(string: imgUrlThumb) else {
+                return UIImage()
+            }
+            guard let data = try? Data(contentsOf: imageUrlThumb) else {
+                return UIImage()
+            }
+                                    
+            guard let photo = UIImage(data: data) else {
+                return UIImage()
+            }
+            return photo
+        
+    }
     static public func mealNib() -> UINib {
         return UINib(nibName: MealViewCell.nibName, bundle: nil)
     }

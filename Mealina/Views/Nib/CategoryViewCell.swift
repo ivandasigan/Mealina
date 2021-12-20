@@ -41,13 +41,11 @@ class CategoryViewCell: UITableViewCell {
     }
     
     public func bind(category: Categories) {
-        self.alpha = 0.0
-        UIView.animate(withDuration: 0.3) {
-            self.alpha = 1.0
+      
             self.categoryName.text = category.strCategory
             self.categoryDescription.text = category.strCategoryDescription
             self.categoryImage.image = self.downloadPhotos(imgUrlThumb: category.strCategoryThumb)
-        }
+        
     }
     private func downloadPhotos(imgUrlThumb: String) -> UIImage {
       
