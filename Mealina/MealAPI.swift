@@ -13,6 +13,7 @@ enum MealAPI {
     case getCategoryRequest
     case getRandomMealRequest
     case getMealsRequest(byCategoryName: String)
+    case getRecipeRequest(byidMeal: String)
 }
 
 
@@ -28,13 +29,15 @@ extension MealAPI: TargetType {
         case.getMealsRequest:
             return "filter.php"
         case .getRandomMealRequest:
-            return ""
+            return "random.php"
+        case .getRecipeRequest:
+            return "lookup.php"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getCategoryRequest, .getMealsRequest(byCategoryName: _), .getRandomMealRequest:
+        case .getCategoryRequest, .getMealsRequest(byCategoryName: _), .getRandomMealRequest, .getRecipeRequest(byidMeal: _):
             return .get
         }
     }
@@ -45,6 +48,8 @@ extension MealAPI: TargetType {
             return .requestPlain
         case .getMealsRequest(let name):
             return .requestParameters(parameters: ["c":name], encoding: URLEncoding.queryString)
+        case .getRecipeRequest(let id):
+            return .requestParameters(parameters: ["i":id], encoding: URLEncoding.queryString)
         }
     }
     
