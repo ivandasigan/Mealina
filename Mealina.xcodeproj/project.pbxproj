@@ -27,6 +27,7 @@
 		EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */; };
 		EA7C461C276CC63C00C05E97 /* MealRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C461B276CC63C00C05E97 /* MealRecipeViewController.swift */; };
 		EA7C4620276CDE7300C05E97 /* UIVIew+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C461F276CDE7300C05E97 /* UIVIew+Shadow.swift */; };
+		EAB102B82770A4BF009D355E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB102B72770A4BF009D355E /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		EA7C4619276CC50400C05E97 /* MealListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListTableViewController.swift; sourceTree = "<group>"; };
 		EA7C461B276CC63C00C05E97 /* MealRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecipeViewController.swift; sourceTree = "<group>"; };
 		EA7C461F276CDE7300C05E97 /* UIVIew+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Shadow.swift"; sourceTree = "<group>"; };
+		EAB102B72770A4BF009D355E /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		F90C9810554A98C1AAE33022 /* Pods-Mealina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mealina.debug.xcconfig"; path = "Target Support Files/Pods-Mealina/Pods-Mealina.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,7 @@
 			children = (
 				EA64CF2F276F544C00C388FD /* Category.swift */,
 				EA64CF31276F562400C388FD /* Meal.swift */,
+				EAB102B72770A4BF009D355E /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				EA7C461C276CC63C00C05E97 /* MealRecipeViewController.swift in Sources */,
 				EA7C45FB276C9B5100C05E97 /* SceneDelegate.swift in Sources */,
 				EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */,
+				EAB102B82770A4BF009D355E /* Recipe.swift in Sources */,
 				EA64CF2C276F392300C388FD /* Controllers.swift in Sources */,
 				EA6D5EB6276F8A6300564E8B /* MealService.swift in Sources */,
 				EA7C4617276CC10600C05E97 /* MealViewCell.swift in Sources */,

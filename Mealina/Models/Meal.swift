@@ -13,9 +13,5 @@ struct Meal: Codable {
 }
 
 struct Meals: Codable {
-
-    var strMeal: String
-    var strMealThumb: String
-    var idMeal: String
-    
+    var strMeal,strMealThumb,idMeal: String
 }

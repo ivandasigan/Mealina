@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class MealRecipeViewController: UIViewController {
 
@@ -23,6 +24,8 @@ class MealRecipeViewController: UIViewController {
   
     @IBOutlet weak var instructionContainerView: UIView!
     
+    let mealService = MealService()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
@@ -35,6 +38,9 @@ class MealRecipeViewController: UIViewController {
         for _ in 0..<10  {
             addChildrenStackViews()
         }
+        
+        
+        
     }
     
 
