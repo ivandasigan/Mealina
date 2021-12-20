@@ -25,10 +25,12 @@ class MealRecipeViewController: UIViewController {
     @IBOutlet weak var instructionContainerView: UIView!
     
     var mealService = MealService()
-    var recipies = [Recipes]()
+    var recipies: Recipes!
     var idMeal: String?
     var indicatorView: IVLoaderIndicator!
-    
+    var ingredients = [String]()
+    var measures = [String]()
+    var numberOfItems = 0
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
@@ -41,49 +43,60 @@ class MealRecipeViewController: UIViewController {
         indicatorView = IVLoaderIndicator(superView: self.view)
         indicatorView.addChildIndicatorView()
         
-        for _ in 0..<10  {
-            addChildrenStackViews()
-        }
-        
         firstly {
-            mealService.get(ofType: Recipe.self, target: .getRecipeRequest(byidMeal: "52874"))
+            mealService.get(ofType: Recipe.self, target: .getRecipeRequest(byidMeal: self.idMeal ?? "52874"))
         }.done { result in
-            self.recipies = result.meals
-            let recipe = self.recipies[0]
-            self.mealName.text = recipe.strMeal
-            let tags = recipe.strTags?.replacingOccurrences(of: ",", with: " | ")
-            self.others.text = "\(recipe.strArea) | \(recipe.strCategory) | \(tags!)"
-            self.mealImage.sd_setImage(with: URL(string: recipe.strMealThumb))
+            self.recipies = result.meals[0]
+            
+            self.mealName.text = self.recipies.strMeal
+            let tags = self.recipies.strTags?.replacingOccurrences(of: ",", with: " | ")
+            self.others.text = "\(self.recipies.strArea) | \(self.recipies.strCategory) | \(tags!)"
+            self.mealImage.sd_setImage(with: URL(string: self.recipies.strMealThumb))
             self.mealImage.sd_imageTransition = .fade(duration: 1)
-            self.instruction.text = self.toNumberListInstruction(recipe.strInstructions)
+            self.instruction.text = self.toNumberListInstruction(self.recipies.strInstructions)
+            self.appendIngredientsAndMeasures()
+            self.displayIngredients()
+            self.countItems.text = "\(self.numberOfItems) \(self.numberOfItems != 0 ? "Items":"Item")"
         }.catch { error in
             print(error.localizedDescription)
         }
-        
-      
-        
     }
     
     fileprivate func toNumberListInstruction(_ strInstruction: String) -> String {
         let separtedString = strInstruction.components(separatedBy: "\r\n")
         let strMap = separtedString.enumerated().map { (index, str) in
-            return "\(index + 1).  \(str)"
+            return "\(index + 1). \(str)"
         }.joined(separator: "\n")
         return strMap
     }
-    
-    private func addChildrenStackViews() {
+    private func displayIngredients() {
+        if ingredients.count == measures.count {
+            for n in 0..<ingredients.count {
+                print(ingredients[n] + measures[n])
+                if(ingredients[n] != "" && ingredients[n] != " ") {
+                    if(measures[n] != "" && measures[n] != " ") {
+                        numberOfItems+=1
+                        addChildrenStackViews(ingredient: ingredients[n], measure: measures[n])
+                    }
+                }
+            }
+        }
+    }
+    private func addChildrenStackViews(ingredient: String, measure: String) {
        
-        let ingredientImage = UIImageView(image: UIImage(named: "meal")!)
+        let ingredientImage = UIImageView()
+        ingredientImage.sd_setImage(with: URL(string: "www.themealdb.com/images/ingredients/Lime-Small.png"))
+        ingredientImage.sd_imageTransition = .fade(duration: 1)
+        
         let ingredientName = UILabel()
-        ingredientName.text = "Tiktokerist"
+        ingredientName.text = ingredient
         ingredientName.font = .systemFont(ofSize: 16)
         ingredientName.textColor = .darkGray
         ingredientImage.layer.cornerRadius = 8
         ingredientImage.clipsToBounds = true
         
         let ingredientContent = UILabel()
-        ingredientContent.text = "20grams"
+        ingredientContent.text = measure
         ingredientContent.font = .systemFont(ofSize: 16)
         ingredientContent.textColor = .darkGray
         
@@ -102,8 +115,49 @@ class MealRecipeViewController: UIViewController {
         stackView.addArrangedSubview(itemStackView)
         
     }
-
+    
+    fileprivate func appendIngredientsAndMeasures() {
+        ingredients.append(recipies.strIngredient1)
+        ingredients.append(recipies.strIngredient2)
+        ingredients.append(recipies.strIngredient3)
+        ingredients.append(recipies.strIngredient4)
+        ingredients.append(recipies.strIngredient5)
+        ingredients.append(recipies.strIngredient6)
+        ingredients.append(recipies.strIngredient7)
+        ingredients.append(recipies.strIngredient8)
+        ingredients.append(recipies.strIngredient9)
+        ingredients.append(recipies.strIngredient10)
+        ingredients.append(recipies.strIngredient11)
+        ingredients.append(recipies.strIngredient12)
+        ingredients.append(recipies.strIngredient13)
+        ingredients.append(recipies.strIngredient14)
+        ingredients.append(recipies.strIngredient15)
+        ingredients.append(recipies.strIngredient16)
+        ingredients.append(recipies.strIngredient17)
+        ingredients.append(recipies.strIngredient18)
+        ingredients.append(recipies.strIngredient19)
+        ingredients.append(recipies.strIngredient20)
+           
+        measures.append(recipies.strMeasure1)
+        measures.append(recipies.strMeasure2)
+        measures.append(recipies.strMeasure3)
+        measures.append(recipies.strMeasure4)
+        measures.append(recipies.strMeasure5)
+        measures.append(recipies.strMeasure6)
+        measures.append(recipies.strMeasure7)
+        measures.append(recipies.strMeasure8)
+        measures.append(recipies.strMeasure9)
+        measures.append(recipies.strMeasure10)
+        measures.append(recipies.strMeasure11)
+        measures.append(recipies.strMeasure12)
+        measures.append(recipies.strMeasure13)
+        measures.append(recipies.strMeasure14)
+        measures.append(recipies.strMeasure15)
+        measures.append(recipies.strMeasure16)
+        measures.append(recipies.strMeasure17)
+        measures.append(recipies.strMeasure18)
+        measures.append(recipies.strMeasure19)
+        measures.append(recipies.strMeasure20)
+    }
 }
 
-
-let str = "Preheat the oven to 150C/300F/Gas 2.\r\nToss the beef and flour together in a bowl with some salt and black pepper.\r\nHeat a large casserole until hot, add half of the rapeseed oil and enough of the beef to just cover the bottom of the casserole.\r\nFry until browned on each side, then remove and set aside. Repeat with the remaining oil and beef.\r\nReturn the beef to the pan, add the wine and cook until the volume of liquid has reduced by half, then add the stock, onion, carrots, thyme and mustard, and season well with salt and pepper.\r\nCover with a lid and place in the oven for two hours.\r\nRemove from the oven, check the seasoning and set aside to cool. Remove the thyme.\r\nWhen the beef is cool and you're ready to assemble the pie, preheat the oven to 200C/400F/Gas 6.\r\nTransfer the beef to a pie dish, brush the rim with the beaten egg yolks and lay the pastry over the top. Brush the top of the pastry with more beaten egg.\r\nTrim the pastry so there is just enough excess to crimp the edges, then place in the oven and bake for 30 minutes, or until the pastry is golden-brown and cooked through.\r\nFor the green beans, bring a saucepan of salted water to the boil, add the beans and cook for 4-5 minutes, or until just tender.\r\nDrain and toss with the butter, then season with black pepper.\r\nTo serve, place a large spoonful of pie onto each plate with some green beans alongside."

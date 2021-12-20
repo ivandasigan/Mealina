@@ -8,16 +8,19 @@
 import Foundation
 import Moya
 
+let ingredientThumbnailUrl = "www.themealdb.com/images/ingredients/"
 
 enum MealAPI {
     case getCategoryRequest
     case getRandomMealRequest
     case getMealsRequest(byCategoryName: String)
     case getRecipeRequest(byidMeal: String)
+ 
 }
 
 
 extension MealAPI: TargetType {
+    
     var baseURL: URL {
         return URL(string: "https://www.themealdb.com/api/json/v1/1/")!
     }
