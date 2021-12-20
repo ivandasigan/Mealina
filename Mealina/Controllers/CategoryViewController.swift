@@ -36,11 +36,14 @@ struct IVLoaderIndicator {
         loadingIndicator.startAnimating()
         loadingIndicator.hidesWhenStopped = true
         
-        
+        // Disable interaction when fetching data from the internet
+        self.view.isUserInteractionEnabled = false
         return Guarantee()
     }
     public func hideLoader() -> Guarantee<Void> {
         loadingIndicator.stopAnimating()
+        // Enable interaction when done
+        self.view.isUserInteractionEnabled = true
         return Guarantee()
     }
 }
