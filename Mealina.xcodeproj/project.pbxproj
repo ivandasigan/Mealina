@@ -12,8 +12,8 @@
 		EA64CF2E276F3DB800C388FD /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */; };
 		EA64CF30276F544C00C388FD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2F276F544C00C388FD /* Category.swift */; };
 		EA64CF32276F562400C388FD /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF31276F562400C388FD /* Meal.swift */; };
-		EA64CF34276F725100C388FD /* CategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF33276F725100C388FD /* CategoryAPI.swift */; };
-		EA6D5EB6276F8A6300564E8B /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D5EB5276F8A6300564E8B /* CategoryService.swift */; };
+		EA64CF34276F725100C388FD /* MealAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF33276F725100C388FD /* MealAPI.swift */; };
+		EA6D5EB6276F8A6300564E8B /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D5EB5276F8A6300564E8B /* MealService.swift */; };
 		EA7C45F9276C9B5100C05E97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C45F8276C9B5100C05E97 /* AppDelegate.swift */; };
 		EA7C45FB276C9B5100C05E97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C45FA276C9B5100C05E97 /* SceneDelegate.swift */; };
 		EA7C45FD276C9B5100C05E97 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C45FC276C9B5100C05E97 /* CategoryViewController.swift */; };
@@ -36,8 +36,8 @@
 		EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		EA64CF2F276F544C00C388FD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EA64CF31276F562400C388FD /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
-		EA64CF33276F725100C388FD /* CategoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAPI.swift; sourceTree = "<group>"; };
-		EA6D5EB5276F8A6300564E8B /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		EA64CF33276F725100C388FD /* MealAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAPI.swift; sourceTree = "<group>"; };
+		EA6D5EB5276F8A6300564E8B /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
 		EA7C45F5276C9B5100C05E97 /* Mealina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mealina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7C45F8276C9B5100C05E97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA7C45FA276C9B5100C05E97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,13 +93,13 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		EA6D5EB7276F8E4900564E8B /* Category */ = {
+		EA6D5EB7276F8E4900564E8B /* Meal */ = {
 			isa = PBXGroup;
 			children = (
-				EA64CF33276F725100C388FD /* CategoryAPI.swift */,
-				EA6D5EB5276F8A6300564E8B /* CategoryService.swift */,
+				EA64CF33276F725100C388FD /* MealAPI.swift */,
+				EA6D5EB5276F8A6300564E8B /* MealService.swift */,
 			);
-			name = Category;
+			name = Meal;
 			sourceTree = "<group>";
 		};
 		EA7C45EC276C9B5100C05E97 = {
@@ -188,7 +188,7 @@
 		EA7C461D276CC83100C05E97 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				EA6D5EB7276F8E4900564E8B /* Category */,
+				EA6D5EB7276F8E4900564E8B /* Meal */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -324,12 +324,12 @@
 				EA7C4613276CA4B900C05E97 /* CategoryViewCell.swift in Sources */,
 				EA7C45F9276C9B5100C05E97 /* AppDelegate.swift in Sources */,
 				EA64CF32276F562400C388FD /* Meal.swift in Sources */,
-				EA64CF34276F725100C388FD /* CategoryAPI.swift in Sources */,
+				EA64CF34276F725100C388FD /* MealAPI.swift in Sources */,
 				EA7C461C276CC63C00C05E97 /* MealRecipeViewController.swift in Sources */,
 				EA7C45FB276C9B5100C05E97 /* SceneDelegate.swift in Sources */,
 				EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */,
 				EA64CF2C276F392300C388FD /* Controllers.swift in Sources */,
-				EA6D5EB6276F8A6300564E8B /* CategoryService.swift in Sources */,
+				EA6D5EB6276F8A6300564E8B /* MealService.swift in Sources */,
 				EA7C4617276CC10600C05E97 /* MealViewCell.swift in Sources */,
 				EA64CF2E276F3DB800C388FD /* UIView+CornerRadius.swift in Sources */,
 				EA64CF30276F544C00C388FD /* Category.swift in Sources */,

@@ -9,13 +9,13 @@ import Foundation
 import Moya
 
 
-enum CategoryAPI {
+enum MealAPI {
     case getCategoryRequest
-  
+    case getMealsRequest(byCategoryName: String)
 }
 
 
-extension CategoryAPI: TargetType {
+extension MealAPI: TargetType {
     var baseURL: URL {
         return URL(string: "https://www.themealdb.com/api/json/v1/1/")!
     }
@@ -24,13 +24,13 @@ extension CategoryAPI: TargetType {
         switch self {
         case .getCategoryRequest:
             return "categories.php"
-
+        case.getCategoryReque
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getCategoryRequest:
+        case .getCategoryRequest, .getMealsRequest():
             return .get
         }
     }

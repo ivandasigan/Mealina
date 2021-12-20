@@ -19,11 +19,11 @@ extension Requestable {
 //    }
 }
 
-struct CategoryService {
+struct MealService {
     
     public func fetchCategories() -> Promise<Category> {
         return Promise { seal in
-            let provider = MoyaProvider<CategoryAPI>()
+            let provider = MoyaProvider<MealAPI>()
             provider.request(.getCategoryRequest) { result in
                 switch result {
                 case .success(let response):
