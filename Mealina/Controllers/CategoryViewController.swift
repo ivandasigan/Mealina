@@ -101,24 +101,7 @@ class CategoryViewController: UIViewController {
         }
     }
 
-    private func downloadPhotos(categories: Category) -> Promise<Category> {
-        return Promise { seal in
-            for category in categories.categories {
-                guard let imageUrlThumb = URL(string: category.strCategoryThumb) else {
-                    seal.reject(PhotoError.URLParseError)
-                    return
-                }
-                guard let data = try? Data(contentsOf: imageUrlThumb else {
-                    seal.reject(PhotoError.UrltoDataError)
-                    return
-                }
-                guard let photo = UIImage(data: data) else {
-                    return
-                }
-            }
-            seal.fulfill(self.categories)
-        }
-    }
+    
     fileprivate func configureTableViewAndTextField() {
         categoryTableView.delegate = self
         categoryTableView.dataSource = self

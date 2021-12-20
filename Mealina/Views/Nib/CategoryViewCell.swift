@@ -43,11 +43,27 @@ class CategoryViewCell: UITableViewCell {
     public func bind(category: Categories) {
         self.alpha = 0.0
         UIView.animate(withDuration: 0.3) {
+            self.alpha = 1.0
             self.categoryName.text = category.strCategory
             self.categoryDescription.text = category.strCategoryDescription
+            self.categoryImage.image = downloadPhotos(imgUrlThumb: category.strCategoryThumb)
         }
     }
-    
+    private func downloadPhotos(imgUrlThumb: String) -> UIImage {
+      
+            guard let imageUrlThumb = URL(string: imgUrlThumb) else {
+                return UIImage()
+            }
+            guard let data = try? Data(contentsOf: imageUrlThumb) else {
+                return UIImage()
+            }
+                                    
+            guard let photo = UIImage(data: data) else {
+                return UIImage()
+            }
+            return photo
+        
+    }
     static public func categoryNib() -> UINib {
         return UINib(nibName: CategoryViewCell.nibName, bundle: nil)
     }
