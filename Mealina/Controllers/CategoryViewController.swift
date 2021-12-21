@@ -144,9 +144,9 @@ class CategoryViewController: UIViewController {
     
     //MARK: - OBJC METHODS
     @objc func tappedRandomImage() {
-        let alert = UIAlertController(title: "ALERT MESSAGE", message: "Hi you just Tapped me", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        let vc = Controllers.meal.viewController as! MealRecipeViewController
+        vc.idMeal = randomMeal?.meals[0].idMeal
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func textfieldDidChange(_ textfield: UITextField) {
         guard let searchText = textfield.text else { return }
@@ -161,7 +161,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let category = categories[indexPath.row]
+        let category = filteredCategories[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as? CategoryViewCell {
             cell.bind(category: category)
             return cell
@@ -173,7 +173,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let category = categories[indexPath.row]
+        let category = filteredCategories[indexPath.row]
         let vc = Controllers.listOfMeal.viewController as! MealListTableViewController
         vc.categoryMealName = category.strCategory
         navigationController?.pushViewController(vc, animated: true)

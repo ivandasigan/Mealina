@@ -26,14 +26,6 @@ struct shared {
     }
 }
 
-protocol ViewControllersDelegate {
-    func passCategoryName(name: String)
-    func passidMeal(id: String)
-}
-extension ViewControllersDelegate {
-    func passCategoryName(name: String) {}
-    func passidMeal(id: String) {}
-}
 protocol Requestable {
     func get<T: Codable>(ofType obj: T.Type, target: MealAPI) -> Promise<T>
 }

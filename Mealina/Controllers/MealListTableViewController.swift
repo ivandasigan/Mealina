@@ -111,7 +111,7 @@ class MealListTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        let meal = meals[indexPath.row]
+        let meal = filteredMeals[indexPath.row]
         let vc = Controllers.meal.viewController as! MealRecipeViewController
         vc.idMeal = meal.idMeal
         navigationController?.pushViewController(vc, animated: true)

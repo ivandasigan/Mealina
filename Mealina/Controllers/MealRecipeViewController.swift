@@ -61,7 +61,8 @@ class MealRecipeViewController: UIViewController {
             self.others.text = "\(self.recipies.strArea) | \(self.recipies.strCategory) | \(tags ?? "")"
             self.mealImage.sd_setImage(with: URL(string: self.recipies.strMealThumb))
             self.mealImage.sd_imageTransition = .fade(duration: 1)
-            self.instruction.text = self.toNumberListInstruction(self.recipies.strInstructions)
+            self.instruction.text = self.recipies.strInstructions
+            //self.instruction.text = self.toNumberListInstruction(self.recipies.strInstructions)
             self.appendIngredientsAndMeasures()
             self.displayIngredients()
             self.countItems.text = "\(self.numberOfItems) \(self.numberOfItems != 0 ? "Items":"Item")"
