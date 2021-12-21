@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A25B5BE7C39D71F55FFAABB2 /* Pods_Mealina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD28C0AB077E4616404AE999 /* Pods_Mealina.framework */; };
+		EA1DD927277162D900C0CA3E /* FooterIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1DD926277162D900C0CA3E /* FooterIngredientsViewController.swift */; };
 		EA64CF2C276F392300C388FD /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2B276F392300C388FD /* Controllers.swift */; };
 		EA64CF2E276F3DB800C388FD /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */; };
 		EA64CF30276F544C00C388FD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2F276F544C00C388FD /* Category.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		9C90B781E9B14DFC5FFCC868 /* Pods-Mealina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mealina.release.xcconfig"; path = "Target Support Files/Pods-Mealina/Pods-Mealina.release.xcconfig"; sourceTree = "<group>"; };
 		DD28C0AB077E4616404AE999 /* Pods_Mealina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mealina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA1DD926277162D900C0CA3E /* FooterIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterIngredientsViewController.swift; sourceTree = "<group>"; };
 		EA64CF2B276F392300C388FD /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		EA64CF2F276F544C00C388FD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 				9C90B781E9B14DFC5FFCC868 /* Pods-Mealina.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA1DD928277162E500C0CA3E /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				EA1DD926277162D900C0CA3E /* FooterIngredientsViewController.swift */,
+			);
+			path = Footer;
 			sourceTree = "<group>";
 		};
 		EA64CF2A276F38F600C388FD /* Enums */ = {
@@ -160,6 +170,7 @@
 		EA7C460E276C9D3400C05E97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EA1DD928277162E500C0CA3E /* Footer */,
 				EA7C4610276CA46800C05E97 /* Nib */,
 				EA7C4603276C9B5800C05E97 /* LaunchScreen.storyboard */,
 				EA7C45FE276C9B5100C05E97 /* Main.storyboard */,
@@ -332,6 +343,7 @@
 				EA7C45FB276C9B5100C05E97 /* SceneDelegate.swift in Sources */,
 				EA7C461A276CC50400C05E97 /* MealListTableViewController.swift in Sources */,
 				EAB102B82770A4BF009D355E /* Recipe.swift in Sources */,
+				EA1DD927277162D900C0CA3E /* FooterIngredientsViewController.swift in Sources */,
 				EA64CF2C276F392300C388FD /* Controllers.swift in Sources */,
 				EA6D5EB6276F8A6300564E8B /* MealService.swift in Sources */,
 				EA7C4617276CC10600C05E97 /* MealViewCell.swift in Sources */,

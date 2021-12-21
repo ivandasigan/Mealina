@@ -24,6 +24,7 @@ class MealRecipeViewController: UIViewController {
   
     @IBOutlet weak var instructionContainerView: UIView!
     
+    //MARK: - INITIALIZATIONS
     var mealService = MealService()
     var recipies: Recipes!
     var idMeal: String?
@@ -31,6 +32,8 @@ class MealRecipeViewController: UIViewController {
     var ingredients = [String]()
     var measures = [String]()
     var numberOfItems = 0
+    var footerIngredientVC = FooterIngredientsViewController()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
@@ -69,6 +72,7 @@ class MealRecipeViewController: UIViewController {
         }.joined(separator: "\n")
         return strMap
     }
+    
     private func displayIngredients() {
         if ingredients.count == measures.count {
             for n in 0..<ingredients.count {
@@ -76,20 +80,21 @@ class MealRecipeViewController: UIViewController {
                 if(ingredients[n] != "" && ingredients[n] != " ") {
                     if(measures[n] != "" && measures[n] != " ") {
                         numberOfItems+=1
-                        addChildrenStackViews(ingredient: ingredients[n], measure: measures[n])
+                        
+                        addChildrenStackViews(ingredientStr: ingredients[n], measure: measures[n])
                     }
                 }
             }
         }
     }
-    private func addChildrenStackViews(ingredient: String, measure: String) {
-       
+    private func addChildrenStackViews(ingredientStr: String, measure: String) {
+        let ingredient = ingredientStr.replacingOccurrences(of: " ", with: "%20")
         let ingredientImage = UIImageView()
         ingredientImage.sd_setImage(with: URL(string: "https://www.themealdb.com/images/ingredients/\(ingredient)-Small.png"))
         ingredientImage.sd_imageTransition = .fade(duration: 1)
         
         let ingredientName = UILabel()
-        ingredientName.text = ingredient
+        ingredientName.text = ingredientStr
         ingredientName.font = .systemFont(ofSize: 16)
         ingredientName.textColor = .darkGray
         ingredientImage.layer.cornerRadius = 8
@@ -113,7 +118,6 @@ class MealRecipeViewController: UIViewController {
         innerStackView.spacing = 20
         itemStackView.distribution = .equalSpacing
         stackView.addArrangedSubview(itemStackView)
-        
     }
     
     fileprivate func appendIngredientsAndMeasures() {
