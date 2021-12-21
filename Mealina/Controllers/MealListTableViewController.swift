@@ -10,13 +10,19 @@ import PromiseKit
 
 class MealListTableViewController: UITableViewController {
 
-   
+   //MARK: - INITIALIZATION
     var indicatorView: IVLoaderIndicator!
     var mealService = MealService()
     
     var categoryMealName: String?
     var meals = [Meals]()
     
+    var searchFilter = "" {
+        didSet {
+            filter()
+        }
+    }
+    var filteredMeals = [Meals]()
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +45,7 @@ class MealListTableViewController: UITableViewController {
         indicatorView.addChildIndicatorView()
         
         configureTableView()
+        congfigureSearchController()
         tableView.separatorInset = UIEdgeInsets(top: 40, left: 90, bottom: 0, right: 10)
         
         firstly {
@@ -48,6 +55,7 @@ class MealListTableViewController: UITableViewController {
         }.done { result in
             self.indicatorView.hideLoader()
             self.meals = result.meals
+            self.filteredMeals = result.meals
             self.tableView.reloadData()
         }.catch { (error) in
             print(error.localizedDescription)
@@ -62,17 +70,34 @@ class MealListTableViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         searchController.searchResultsUpdater = self
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            tableView.tableHeaderView = searchController.searchBar
+        }
     }
+    
+    func filter() {
+        if searchFilter.count != 0 {
+            filteredMeals = meals.filter({ meal in
+                return meal.strMeal.localizedLowercase.contains(searchFilter.localizedLowercase)
+            })
+        } else {
+            filteredMeals = meals
+        }
+    }
+    
     // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return meals.count
+        return filteredMeals.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let meal = meals[indexPath.row]
+        let meal = filteredMeals[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: MealViewCell.identifier, for: indexPath) as? MealViewCell {
             DispatchQueue.main.async {
                 cell.bind(meal: meal)
@@ -96,8 +121,9 @@ class MealListTableViewController: UITableViewController {
 extension MealListTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // filter data here
+        guard let searchText = searchController.searchBar.text else { return }
+        self.searchFilter = searchText
+        tableView.reloadData()
     }
-    
-    
 }
 

@@ -74,8 +74,14 @@ class CategoryViewController: UIViewController {
     private let radius : CGFloat = 8
     private let mealService = MealService()
     private var indicatorView: IVLoaderIndicator!
+    private var filteredCategories = [Categories]()
     private var categories = [Categories]()
     private var randomMeal: Recipe?
+    private var searchFilter = "" {
+        didSet {
+            filter()
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,11 +90,10 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureTableViewAndTextField()
         indicatorView = IVLoaderIndicator(superView: self.view)
         indicatorView.addChildIndicatorView()
-        
-        
         
         firstly {
             self.indicatorView.showLoader()
@@ -97,6 +102,7 @@ class CategoryViewController: UIViewController {
         }.done { result in
           
             self.categories = result.categories
+            self.filteredCategories = result.categories
             self.categoryTableView.reloadData()
        
         }.catch { error in
@@ -126,20 +132,32 @@ class CategoryViewController: UIViewController {
         searchCategoryTextField.delegate = self
     }
     
-    //MARK:- OBJ METHODS
+    fileprivate func filter() {
+        if searchFilter.count != 0 {
+            filteredCategories = categories.filter({ category in
+                return category.strCategory.localizedLowercase.contains(searchFilter.localizedLowercase)
+            })
+        } else {
+            filteredCategories = categories
+        }
+    }
+    
+    //MARK: - OBJC METHODS
     @objc func tappedRandomImage() {
         let alert = UIAlertController(title: "ALERT MESSAGE", message: "Hi you just Tapped me", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     @objc func textfieldDidChange(_ textfield: UITextField) {
-        print(textfield.text!)
+        guard let searchText = textfield.text else { return }
+        self.searchFilter = searchText
+        categoryTableView.reloadData()
     }
 }
 
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return filteredCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
