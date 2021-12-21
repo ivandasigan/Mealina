@@ -70,12 +70,8 @@ class MealListTableViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         searchController.searchResultsUpdater = self
-        
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-        } else {
-            tableView.tableHeaderView = searchController.searchBar
-        }
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
     }
     
     func filter() {
@@ -118,12 +114,13 @@ class MealListTableViewController: UITableViewController {
     }
 }
 
-extension MealListTableViewController: UISearchResultsUpdating {
+extension MealListTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         // filter data here
         guard let searchText = searchController.searchBar.text else { return }
         self.searchFilter = searchText
         tableView.reloadData()
     }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {}
 }
 

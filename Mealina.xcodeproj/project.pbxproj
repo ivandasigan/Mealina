@@ -10,6 +10,8 @@
 		A25B5BE7C39D71F55FFAABB2 /* Pods_Mealina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD28C0AB077E4616404AE999 /* Pods_Mealina.framework */; };
 		EA1DD927277162D900C0CA3E /* FooterIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1DD926277162D900C0CA3E /* FooterIngredientsViewController.swift */; };
 		EA1DD92A27716FD900C0CA3E /* TableViewCell+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1DD92927716FD900C0CA3E /* TableViewCell+Nib.swift */; };
+		EA1DD92D2771B43100C0CA3E /* IVLoaderIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1DD92C2771B43100C0CA3E /* IVLoaderIndicator.swift */; };
+		EA1DD9302771C1F400C0CA3E /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1DD92F2771C1F400C0CA3E /* Requestable.swift */; };
 		EA64CF2C276F392300C388FD /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2B276F392300C388FD /* Controllers.swift */; };
 		EA64CF2E276F3DB800C388FD /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */; };
 		EA64CF30276F544C00C388FD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA64CF2F276F544C00C388FD /* Category.swift */; };
@@ -37,6 +39,8 @@
 		DD28C0AB077E4616404AE999 /* Pods_Mealina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mealina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1DD926277162D900C0CA3E /* FooterIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterIngredientsViewController.swift; sourceTree = "<group>"; };
 		EA1DD92927716FD900C0CA3E /* TableViewCell+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Nib.swift"; sourceTree = "<group>"; };
+		EA1DD92C2771B43100C0CA3E /* IVLoaderIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVLoaderIndicator.swift; sourceTree = "<group>"; };
+		EA1DD92F2771C1F400C0CA3E /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		EA64CF2B276F392300C388FD /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		EA64CF2D276F3DB800C388FD /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		EA64CF2F276F544C00C388FD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -99,6 +103,22 @@
 			path = Footer;
 			sourceTree = "<group>";
 		};
+		EA1DD92B2771B41600C0CA3E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EA1DD92C2771B43100C0CA3E /* IVLoaderIndicator.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		EA1DD92E2771C1DA00C0CA3E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EA1DD92F2771C1F400C0CA3E /* Requestable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		EA64CF2A276F38F600C388FD /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +157,8 @@
 		EA7C45F7276C9B5100C05E97 /* Mealina */ = {
 			isa = PBXGroup;
 			children = (
+				EA1DD92E2771C1DA00C0CA3E /* Protocol */,
+				EA1DD92B2771B41600C0CA3E /* Utility */,
 				EA64CF2A276F38F600C388FD /* Enums */,
 				EA7C461E276CDE5800C05E97 /* Extensions */,
 				EA7C461D276CC83100C05E97 /* Service */,
@@ -336,7 +358,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA1DD9302771C1F400C0CA3E /* Requestable.swift in Sources */,
 				EA7C4620276CDE7300C05E97 /* UIVIew+Shadow.swift in Sources */,
+				EA1DD92D2771B43100C0CA3E /* IVLoaderIndicator.swift in Sources */,
 				EA7C45FD276C9B5100C05E97 /* CategoryViewController.swift in Sources */,
 				EA7C4613276CA4B900C05E97 /* CategoryViewCell.swift in Sources */,
 				EA7C45F9276C9B5100C05E97 /* AppDelegate.swift in Sources */,

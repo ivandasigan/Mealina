@@ -8,6 +8,11 @@
 import UIKit
 import PromiseKit
 import SDWebImage
+
+protocol ErrorAlertable {
+    func showError(title: String, message: String)
+}
+
 class MealRecipeViewController: UIViewController {
 
     //MARK: - OUTLETS
@@ -49,10 +54,12 @@ class MealRecipeViewController: UIViewController {
         indicatorView.addChildIndicatorView()
         
         dummyStackView.removeFromSuperview()
-        
         firstly {
-            mealService.get(ofType: Recipe.self, target: .getRecipeRequest(byidMeal: self.idMeal ?? "52874"))
+            self.indicatorView.showLoader()
+        }.then(on: DispatchQueue.global(qos: .background), flags: nil) {
+            self.mealService.get(ofType: Recipe.self, target: .getRecipeRequest(byidMeal: self.idMeal ?? "52874"))
         }.done { result in
+            self.indicatorView.hideLoader()
             self.recipies = result.meals[0]
             
             //Update views
@@ -68,8 +75,11 @@ class MealRecipeViewController: UIViewController {
             self.countItems.text = "\(self.numberOfItems) \(self.numberOfItems != 0 ? "Items":"Item")"
             
         }.catch { error in
-            print(error.localizedDescription)
+            self.indicatorView.hideLoader()
+            
+            self.showErrorAlert(message: error.localizedDescription)
         }
+      
     }
     
     fileprivate func toNumberListInstruction(_ strInstruction: String) -> String {
@@ -94,6 +104,16 @@ class MealRecipeViewController: UIViewController {
         }
     }
     
+    fileprivate func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "ERROR", message: message, preferredStyle: .alert)
+        let tryAnother = UIAlertAction(title: "Try Another", style: .default) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(tryAnother)
+        
+        present(alert, animated: true, completion: nil)
+    }
+   
     private func addChildrenStackViews(ingredientStr: String, measure: String) {
         let ingredient = ingredientStr.replacingOccurrences(of: " ", with: "%20")
         let ingredientImage = UIImageView()
@@ -172,3 +192,8 @@ class MealRecipeViewController: UIViewController {
     }
 }
 
+extension MealRecipeViewController: ErrorAlertable {
+    func showError(title: String, message: String) {
+        
+    }
+}

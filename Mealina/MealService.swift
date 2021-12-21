@@ -10,27 +10,9 @@ import PromiseKit
 import Moya
 
 
-enum PhotoError: Error {
-    case URLParseError
-    case UrltoDataError
-}
-
 enum RequestError: Error {
-    case DecodeError
-    case ErrorCode(code: Int)
+    case ErrorDecodingData
 }
-struct shared {
- 
-    static public func requestProvider<T: TargetType>(_ enum: T) -> MoyaProvider<T> {
-        return MoyaProvider<T>()
-    }
-}
-
-protocol Requestable {
-    func get<T: Codable>(ofType obj: T.Type, target: MealAPI) -> Promise<T>
-}
-
-extension Requestable { }
 
 
 struct MealService: Requestable {
@@ -43,6 +25,7 @@ struct MealService: Requestable {
                 case .success(let response):
                     guard let modelData = try? JSONDecoder().decode(obj.self, from: response.data) else {
                         print("ERROR DECODING")
+                        seal.reject(RequestError.ErrorDecodingData)
                         return
                     }
                     seal.fulfill(modelData)
