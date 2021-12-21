@@ -8,6 +8,7 @@
 import UIKit
 import Moya
 import PromiseKit
+import SDWebImage
 
 struct IVLoaderIndicator {
     var loadingIndicator = UIActivityIndicatorView()
@@ -70,10 +71,11 @@ class CategoryViewController: UIViewController {
     }
     
     //MARK: - INIIALIZATIONS
-    let radius : CGFloat = 8
-    var indicatorView: IVLoaderIndicator!
-    let mealService = MealService()
+    private let radius : CGFloat = 8
+    private let mealService = MealService()
+    private var indicatorView: IVLoaderIndicator!
     private var categories = [Categories]()
+    private var randomMeal: Recipe?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -85,15 +87,29 @@ class CategoryViewController: UIViewController {
         configureTableViewAndTextField()
         indicatorView = IVLoaderIndicator(superView: self.view)
         indicatorView.addChildIndicatorView()
+        
+        
+        
         firstly {
             self.indicatorView.showLoader()
         }.then(on: DispatchQueue.global(qos: .background), flags: nil) {
             self.mealService.get(ofType: Category.self, target: .getCategoryRequest)
         }.done { result in
-            self.indicatorView.hideLoader()
+          
             self.categories = result.categories
             self.categoryTableView.reloadData()
        
+        }.catch { error in
+            print(error)
+        }
+        
+        firstly {
+            self.mealService.get(ofType: Recipe.self, target: .getRandomMealRequest)
+        }.done { result in
+            self.indicatorView.hideLoader()
+            self.randomImage.sd_setImage(with: URL(string: result.meals[0].strMealThumb))
+            self.randomImage.sd_imageTransition = .fade(duration: 1)
+            self.randomMeal = result
         }.catch { error in
             print(error)
         }

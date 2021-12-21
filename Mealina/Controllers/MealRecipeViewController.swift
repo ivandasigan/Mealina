@@ -58,7 +58,7 @@ class MealRecipeViewController: UIViewController {
             //Update views
             self.mealName.text = self.recipies.strMeal
             let tags = self.recipies.strTags?.replacingOccurrences(of: ",", with: " | ")
-            self.others.text = "\(self.recipies.strArea) | \(self.recipies.strCategory) | \(tags!)"
+            self.others.text = "\(self.recipies.strArea) | \(self.recipies.strCategory) | \(tags ?? "")"
             self.mealImage.sd_setImage(with: URL(string: self.recipies.strMealThumb))
             self.mealImage.sd_imageTransition = .fade(duration: 1)
             self.instruction.text = self.toNumberListInstruction(self.recipies.strInstructions)

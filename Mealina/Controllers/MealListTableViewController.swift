@@ -10,6 +10,14 @@ import PromiseKit
 
 class MealListTableViewController: UITableViewController {
 
+   
+    var indicatorView: IVLoaderIndicator!
+    var mealService = MealService()
+    
+    var categoryMealName: String?
+    var meals = [Meals]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,12 +31,6 @@ class MealListTableViewController: UITableViewController {
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
     }
    
-    
-    var indicatorView: IVLoaderIndicator!
-    var mealService = MealService()
-    
-    var categoryMealName: String?
-    var meals = [Meals]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +58,11 @@ class MealListTableViewController: UITableViewController {
         tableView.register(MealViewCell.loadCustomNib(nibName: MealViewCell.nibName), forCellReuseIdentifier: MealViewCell.identifier)
     }
     
-    
+    fileprivate func congfigureSearchController() {
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
+        searchController.searchResultsUpdater = self
+    }
     // MARK: - Table view data source
 
 
@@ -85,8 +91,13 @@ class MealListTableViewController: UITableViewController {
         vc.idMeal = meal.idMeal
         navigationController?.pushViewController(vc, animated: true)
     }
-
-    
 }
 
+extension MealListTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // filter data here
+    }
+    
+    
+}
 
