@@ -85,7 +85,7 @@ class MealRecipeViewController: UIViewController {
     private func addChildrenStackViews(ingredient: String, measure: String) {
        
         let ingredientImage = UIImageView()
-        ingredientImage.sd_setImage(with: URL(string: "www.themealdb.com/images/ingredients/Lime-Small.png"))
+        ingredientImage.sd_setImage(with: URL(string: "https://www.themealdb.com/images/ingredients/\(ingredient)-Small.png"))
         ingredientImage.sd_imageTransition = .fade(duration: 1)
         
         let ingredientName = UILabel()
