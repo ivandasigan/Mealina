@@ -46,7 +46,7 @@ class MealListTableViewController: UITableViewController {
         
         configureTableView()
         congfigureSearchController()
-        tableView.separatorInset = UIEdgeInsets(top: 40, left: 90, bottom: 0, right: 10)
+    
         
         firstly {
             indicatorView.showLoader()
@@ -58,12 +58,14 @@ class MealListTableViewController: UITableViewController {
             self.filteredMeals = result.meals
             self.tableView.reloadData()
         }.catch { (error) in
+            self.indicatorView.hideLoader()
             print(error.localizedDescription)
         }
     }
 
     fileprivate func configureTableView() {
         tableView.register(MealViewCell.loadCustomNib(nibName: MealViewCell.nibName), forCellReuseIdentifier: MealViewCell.identifier)
+        tableView.separatorInset = UIEdgeInsets(top: 40, left: 90, bottom: 0, right: 10)
     }
     
     fileprivate func congfigureSearchController() {

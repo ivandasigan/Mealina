@@ -9,9 +9,6 @@ import UIKit
 import PromiseKit
 import SDWebImage
 
-protocol ErrorAlertable {
-    func showError(title: String, message: String)
-}
 
 class MealRecipeViewController: UIViewController {
 
@@ -54,6 +51,7 @@ class MealRecipeViewController: UIViewController {
         indicatorView.addChildIndicatorView()
         
         dummyStackView.removeFromSuperview()
+        
         firstly {
             self.indicatorView.showLoader()
         }.then(on: DispatchQueue.global(qos: .background), flags: nil) {
@@ -192,8 +190,3 @@ class MealRecipeViewController: UIViewController {
     }
 }
 
-extension MealRecipeViewController: ErrorAlertable {
-    func showError(title: String, message: String) {
-        
-    }
-}

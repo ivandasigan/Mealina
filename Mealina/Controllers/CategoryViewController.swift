@@ -11,7 +11,8 @@ import PromiseKit
 import SDWebImage
 
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController  {
+   
     
     //MARK: - OUTLETS
  
@@ -63,7 +64,7 @@ class CategoryViewController: UIViewController {
         configureTableViewAndTextField()
         indicatorView = IVLoaderIndicator(superView: self.view)
         indicatorView.addChildIndicatorView()
-        
+    
         firstly {
             self.indicatorView.showLoader()
         }.then(on: DispatchQueue.global(qos: .background), flags: nil) {
@@ -86,6 +87,7 @@ class CategoryViewController: UIViewController {
             self.randomImage.sd_imageTransition = .fade(duration: 1)
             self.randomMeal = result
         }.catch { error in
+            self.indicatorView.hideLoader()
             print(error)
         }
     }
