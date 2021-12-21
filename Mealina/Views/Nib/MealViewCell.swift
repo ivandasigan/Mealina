@@ -48,8 +48,6 @@ class MealViewCell: UITableViewCell {
             return photo
         
     }
-    static public func mealNib() -> UINib {
-        return UINib(nibName: MealViewCell.nibName, bundle: nil)
-    }
+
     
 }

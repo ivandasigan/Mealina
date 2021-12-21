@@ -24,6 +24,8 @@ class MealRecipeViewController: UIViewController {
   
     @IBOutlet weak var instructionContainerView: UIView!
     
+    @IBOutlet weak var dummyStackView: UIStackView!
+    
     //MARK: - INITIALIZATIONS
     var mealService = MealService()
     var recipies: Recipes!
@@ -46,11 +48,14 @@ class MealRecipeViewController: UIViewController {
         indicatorView = IVLoaderIndicator(superView: self.view)
         indicatorView.addChildIndicatorView()
         
+        dummyStackView.removeFromSuperview()
+        
         firstly {
             mealService.get(ofType: Recipe.self, target: .getRecipeRequest(byidMeal: self.idMeal ?? "52874"))
         }.done { result in
             self.recipies = result.meals[0]
             
+            //Update views
             self.mealName.text = self.recipies.strMeal
             let tags = self.recipies.strTags?.replacingOccurrences(of: ",", with: " | ")
             self.others.text = "\(self.recipies.strArea) | \(self.recipies.strCategory) | \(tags!)"
@@ -60,6 +65,7 @@ class MealRecipeViewController: UIViewController {
             self.appendIngredientsAndMeasures()
             self.displayIngredients()
             self.countItems.text = "\(self.numberOfItems) \(self.numberOfItems != 0 ? "Items":"Item")"
+            
         }.catch { error in
             print(error.localizedDescription)
         }
@@ -80,13 +86,13 @@ class MealRecipeViewController: UIViewController {
                 if(ingredients[n] != "" && ingredients[n] != " ") {
                     if(measures[n] != "" && measures[n] != " ") {
                         numberOfItems+=1
-                        
                         addChildrenStackViews(ingredientStr: ingredients[n], measure: measures[n])
                     }
                 }
             }
         }
     }
+    
     private func addChildrenStackViews(ingredientStr: String, measure: String) {
         let ingredient = ingredientStr.replacingOccurrences(of: " ", with: "%20")
         let ingredientImage = UIImageView()

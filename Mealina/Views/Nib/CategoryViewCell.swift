@@ -64,9 +64,7 @@ class CategoryViewCell: UITableViewCell {
             return photo
         
     }
-    static public func categoryNib() -> UINib {
-        return UINib(nibName: CategoryViewCell.nibName, bundle: nil)
-    }
+
     
     fileprivate func imageFrame(view: UIImageView) -> CGRect {
         let height = view.frame.height

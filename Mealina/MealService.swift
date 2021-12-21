@@ -16,8 +16,6 @@ enum PhotoError: Error {
 }
 
 enum RequestError: Error {
-   
-    
     case DecodeError
     case ErrorCode(code: Int)
 }
@@ -28,6 +26,14 @@ struct shared {
     }
 }
 
+protocol ViewControllersDelegate {
+    func passCategoryName(name: String)
+    func passidMeal(id: String)
+}
+extension ViewControllersDelegate {
+    func passCategoryName(name: String) {}
+    func passidMeal(id: String) {}
+}
 protocol Requestable {
     func get<T: Codable>(ofType obj: T.Type, target: MealAPI) -> Promise<T>
 }
@@ -55,15 +61,4 @@ struct MealService: Requestable {
             }
         }
     }
-    
-    
-//    public func fetch<T: Codable>(ofType obj: T, path: MealAPI) -> Promise<T> {
-//
-//        let provider = MoyaProvider<MealAPI>()
-//        return Promise { seal in
-//            provider.request(path) { result in
-//                <#code#>
-//            }
-//        }
-//    }
 }

@@ -438,6 +438,7 @@
                     </view>
                     <connections>
                         <outlet property="countItems" destination="jGM-io-hYN" id="chT-PA-9jS"/>
+                        <outlet property="dummyStackView" destination="93H-sq-Kez" id="snV-rA-dRC"/>
                         <outlet property="instruction" destination="s1G-n3-Ki7" id="H25-8t-60U"/>
                         <outlet property="instructionContainerView" destination="UCc-xU-pRE" id="dzm-ZC-W3W"/>
                         <outlet property="mealImage" destination="hHG-LT-QnF" id="n1X-GP-TBd"/>

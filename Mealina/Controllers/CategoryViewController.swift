@@ -9,13 +9,6 @@ import UIKit
 import Moya
 import PromiseKit
 
-//    var loadingIndicator: UIActivityIndicatorView = {
-//        let activityIndicator = UIActivityIndicatorView()
-//        activityIndicator.style = .medium
-//        activityIndicator.translatesAutoresizingMaskIntoConstraints
-//        return activityIndicator
-//    }()
-
 struct IVLoaderIndicator {
     var loadingIndicator = UIActivityIndicatorView()
     public init(superView view: UIView) {
@@ -76,6 +69,7 @@ class CategoryViewController: UIViewController {
         }
     }
     
+    //MARK: - INIIALIZATIONS
     let radius : CGFloat = 8
     var indicatorView: IVLoaderIndicator!
     let mealService = MealService()
@@ -111,7 +105,7 @@ class CategoryViewController: UIViewController {
         categoryTableView.dataSource = self
         
         categoryTableView.separatorStyle = .none
-        categoryTableView.register(CategoryViewCell.categoryNib(), forCellReuseIdentifier: CategoryViewCell.identifier)
+        categoryTableView.register(CategoryViewCell.loadCustomNib(nibName: CategoryViewCell.nibName), forCellReuseIdentifier: CategoryViewCell.identifier)
         
         searchCategoryTextField.delegate = self
     }
@@ -145,8 +139,9 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let category = categories[indexPath.row]
         let vc = Controllers.listOfMeal.viewController as! MealListTableViewController
-        vc.categoryMealName = categories[indexPath.row].strCategory
+        vc.categoryMealName = category.strCategory
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -161,3 +156,4 @@ extension CategoryViewController: UITextFieldDelegate {
         return true
     }
 }
+

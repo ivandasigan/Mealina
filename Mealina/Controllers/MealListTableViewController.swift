@@ -9,9 +9,7 @@ import UIKit
 import PromiseKit
 
 class MealListTableViewController: UITableViewController {
-    
-    var categoryMealName: String?
-    var meals = [Meals]()
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,11 +21,14 @@ class MealListTableViewController: UITableViewController {
         let backImage = UIImage(systemName: "arrow.backward")?.withRenderingMode(.alwaysOriginal).withAlignmentRectInsets(edgeInsets)
         self.navigationController?.navigationBar.backIndicatorImage = backImage
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-        
-        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+   
+    
     var indicatorView: IVLoaderIndicator!
     var mealService = MealService()
+    
+    var categoryMealName: String?
+    var meals = [Meals]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,7 @@ class MealListTableViewController: UITableViewController {
     }
 
     fileprivate func configureTableView() {
-        tableView.register(MealViewCell.mealNib(), forCellReuseIdentifier: MealViewCell.identifier)
+        tableView.register(MealViewCell.loadCustomNib(nibName: MealViewCell.nibName), forCellReuseIdentifier: MealViewCell.identifier)
     }
     
     
@@ -79,11 +80,13 @@ class MealListTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        navigationController?.pushViewController(Controllers.meal.viewController, animated: true)
+        let meal = meals[indexPath.row]
+        let vc = Controllers.meal.viewController as! MealRecipeViewController
+        vc.idMeal = meal.idMeal
+        navigationController?.pushViewController(vc, animated: true)
     }
 
-    @objc func popToPrevious() {
-        navigationController?.popViewController(animated: true)
-    }
     
 }
+
+
